@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\masyarakat\AuthController;
+use App\Http\Controllers\masyarakat\MasyarakatController;
+use App\Http\Controllers\masyarakat\TableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('masyarakat/page/index');
 });
+
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::get('/', [MasyarakatController::class, 'index']);
+Route::get('/table', [TableController::class, 'table']);
+Route::get('/table/detail', [TableController::class, 'detail']);
